@@ -1,41 +1,58 @@
 schema: '2.0'
 stages:
   data_ingestion:
-    cmd: python src/data_ingestion.py
+    cmd: python -m src.data_ingestion
     deps:
+    - path: params.yaml
+      hash: md5
+      md5: e9563ccbfd02a7100831b35a8765db68
+      size: 132
+      isexec: true
     - path: src/data_ingestion.py
       hash: md5
       md5: af66843ef50d79515c1ea285ab282894
       size: 3652
       isexec: true
-    params:
-      params.yaml:
-        data_ingestion.test_size: 0.05
     outs:
-    - path: data/raw
+    - path: data/raw/test_data.csv
       hash: md5
-      md5: 4ea568625e134aaf49b387fb4b3629fa.dir
-      size: 479272
-      nfiles: 2
+      md5: e656440aaeae44ffb3aa5b6ab4b0d781
+      size: 95062
+      isexec: true
+    - path: data/raw/train_data.csv
+      hash: md5
+      md5: 5834df7d942ee44b5356aa91ca78f130
+      size: 384210
+      isexec: true
   data_preprocessing:
-    cmd: python src/data_preprocessing.py
+    cmd: python -m src.data_preprocessing
     deps:
-    - path: data/raw
+    - path: data/raw/test_data.csv
       hash: md5
-      md5: 4ea568625e134aaf49b387fb4b3629fa.dir
-      size: 479272
-      nfiles: 2
+      md5: e656440aaeae44ffb3aa5b6ab4b0d781
+      size: 95062
+      isexec: true
+    - path: data/raw/train_data.csv
+      hash: md5
+      md5: 5834df7d942ee44b5356aa91ca78f130
+      size: 384210
+      isexec: true
     - path: src/data_preprocessing.py
       hash: md5
-      md5: b73bf109acefff6400eae34f706cdb59
-      size: 3772
+      md5: bd2f68dfbf16c60bc073b2e73b895018
+      size: 4031
       isexec: true
     outs:
-    - path: data/interim
+    - path: data/interim/test_processed.csv
       hash: md5
-      md5: 55e8aa84c32a8811b7f43ee7116cf28b.dir
-      size: 266692
-      nfiles: 2
+      md5: 71d828e8812d9b391676e11269186580
+      size: 57370
+      isexec: true
+    - path: data/interim/train_processed.csv
+      hash: md5
+      md5: 3fb266466fea3579f982aa7d2c3f7e47
+      size: 213383
+      isexec: true
   feature_engineering:
     cmd: python src/feature_engineering.py
     deps:

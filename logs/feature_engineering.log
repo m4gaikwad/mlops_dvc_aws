@@ -10,3 +10,9 @@
 2025-07-24 04:32:44,080 - feature_engineering - DEBUG - TFIDF Vectors created for Train and Test Data
 2025-07-24 04:32:44,186 - feature_engineering - DEBUG - Data Saved:./data/processed/train_tfidf.csv
 2025-07-24 04:32:44,195 - feature_engineering - DEBUG - Data Saved:./data/processed/test_tfidf.csv
+2025-09-09 06:27:16,789 - feature_engineering - DEBUG - Parameters from params.yaml loaded
+2025-09-09 06:27:16,795 - feature_engineering - DEBUG - Data loaded and NaNs filled from ./data/interim/train_processed.csv
+2025-09-09 06:27:16,798 - feature_engineering - DEBUG - Data loaded and NaNs filled from ./data/interim/test_processed.csv
+2025-09-09 06:27:16,892 - feature_engineering - DEBUG - TFIDF Vectors created for Train and Test Data
+2025-09-09 06:27:16,895 - feature_engineering - ERROR - Error during TFIDF transformation: name 'pickle' is not defined
+2025-09-09 06:27:16,896 - feature_engineering - ERROR - Failed Features Generation: name 'pickle' is not defined

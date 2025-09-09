@@ -6,6 +6,7 @@ import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 import logging
 import yaml
+import pickle
 
 #Logging directory
 log_dir = "logs"

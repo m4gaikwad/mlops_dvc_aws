@@ -31,3 +31,36 @@
 2025-08-14 06:04:21,166 - data_preprocessing - DEBUG - Text Column Transformed.
 2025-08-14 06:04:21,166 - data_preprocessing - DEBUG - Data Transformed Correctly
 2025-08-14 06:04:21,184 - data_preprocessing - DEBUG - Processed Data is Saved: ./data/interim
+2025-09-09 06:26:31,475 - data_preprocessing - DEBUG - Data Loaded Properly.
+2025-09-09 06:26:31,475 - data_preprocessing - DEBUG - Starting preprocessing for DataFrame
+2025-09-09 06:26:31,476 - data_preprocessing - DEBUG - Target Column Encoded.
+2025-09-09 06:26:31,478 - data_preprocessing - DEBUG - Duplicate Removed
+2025-09-09 06:28:42,092 - data_preprocessing - DEBUG - Text Column Transformed.
+2025-09-09 06:28:42,092 - data_preprocessing - DEBUG - Starting preprocessing for DataFrame
+2025-09-09 06:28:42,094 - data_preprocessing - DEBUG - Target Column Encoded.
+2025-09-09 06:28:42,094 - data_preprocessing - DEBUG - Duplicate Removed
+2025-09-09 06:26:34,695 - data_preprocessing - DEBUG - Text Column Transformed.
+2025-09-09 06:26:34,696 - data_preprocessing - DEBUG - Data Transformed Correctly
+2025-09-09 06:26:34,715 - data_preprocessing - DEBUG - Processed Data is Saved: ./data/interim
+2025-09-09 06:26:52,793 - data_preprocessing - DEBUG - Data Loaded Properly.
+2025-09-09 06:26:52,793 - data_preprocessing - DEBUG - Starting preprocessing for DataFrame
+2025-09-09 06:26:52,794 - data_preprocessing - DEBUG - Target Column Encoded.
+2025-09-09 06:26:52,795 - data_preprocessing - DEBUG - Duplicate Removed
+2025-09-09 06:26:55,528 - data_preprocessing - DEBUG - Text Column Transformed.
+2025-09-09 06:26:55,529 - data_preprocessing - DEBUG - Starting preprocessing for DataFrame
+2025-09-09 06:26:55,530 - data_preprocessing - DEBUG - Target Column Encoded.
+2025-09-09 06:26:55,532 - data_preprocessing - DEBUG - Duplicate Removed
+2025-09-09 06:26:55,965 - data_preprocessing - DEBUG - Text Column Transformed.
+2025-09-09 06:26:55,965 - data_preprocessing - DEBUG - Data Transformed Correctly
+2025-09-09 06:26:55,982 - data_preprocessing - DEBUG - Processed Data is Saved: ./data/interim
+2025-09-09 06:27:12,437 - data_preprocessing - DEBUG - Data Loaded Properly.
+2025-09-09 06:27:12,437 - data_preprocessing - DEBUG - Starting preprocessing for DataFrame
+2025-09-09 06:27:12,438 - data_preprocessing - DEBUG - Target Column Encoded.
+2025-09-09 06:27:12,439 - data_preprocessing - DEBUG - Duplicate Removed
+2025-09-09 06:27:15,143 - data_preprocessing - DEBUG - Text Column Transformed.
+2025-09-09 06:27:15,143 - data_preprocessing - DEBUG - Starting preprocessing for DataFrame
+2025-09-09 06:27:15,144 - data_preprocessing - DEBUG - Target Column Encoded.
+2025-09-09 06:27:15,145 - data_preprocessing - DEBUG - Duplicate Removed
+2025-09-09 06:27:15,572 - data_preprocessing - DEBUG - Text Column Transformed.
+2025-09-09 06:27:15,572 - data_preprocessing - DEBUG - Data Transformed Correctly
+2025-09-09 06:27:15,590 - data_preprocessing - DEBUG - Processed Data is Saved: ./data/interim
