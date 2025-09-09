@@ -23,6 +23,7 @@ from src import feature_engineering as fe
 from src import model_building as mb
 from src import model_evaluation as me
 
+VEC_PATH = "data/processed/vectorizer.pkl"
 
 @pytest.fixture(scope="session", autouse=True)
 def ensure_vectorizer():
