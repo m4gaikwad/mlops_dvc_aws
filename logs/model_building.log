@@ -16,3 +16,9 @@
 2025-09-09 06:31:06,037 - model_building - DEBUG - Model training starred with 4152 samples
 2025-09-09 06:31:10,234 - model_building - DEBUG - Training Completed
 2025-09-09 06:31:10,309 - model_building - DEBUG - Model saved to model/model.pkl
+2025-09-09 07:55:23,658 - model_building - DEBUG - Intializing RF Model params from {'n_estimators': 5, 'random_state': 42}
+2025-09-09 07:55:23,658 - model_building - DEBUG - Model training starred with 2 samples
+2025-09-09 07:55:23,662 - model_building - DEBUG - Training Completed
+2025-09-09 07:56:01,714 - model_building - DEBUG - Intializing RF Model params from {'n_estimators': 5, 'random_state': 42}
+2025-09-09 07:56:01,714 - model_building - DEBUG - Model training starred with 2 samples
+2025-09-09 07:56:01,717 - model_building - DEBUG - Training Completed

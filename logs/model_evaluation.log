@@ -23,3 +23,5 @@
 2025-09-09 06:31:34,271 - model_evaluation - DEBUG - Test Data Loaded from ./data/processed/test_tfidf.csv
 2025-09-09 06:31:34,405 - model_evaluation - DEBUG - Model Evaluation are accuracy: 0.968211 , precision : 1.000000, recall : 0.775641, auc: 0.887821
 2025-09-09 06:31:34,686 - model_evaluation - DEBUG - Metrics save to reports/metrics.json
+2025-09-09 07:55:23,712 - model_evaluation - DEBUG - Model Evaluation are accuracy: 1.000000 , precision : 1.000000, recall : 1.000000, auc: 1.000000
+2025-09-09 07:56:01,767 - model_evaluation - DEBUG - Model Evaluation are accuracy: 1.000000 , precision : 1.000000, recall : 1.000000, auc: 1.000000

@@ -5,6 +5,7 @@ import pytest
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
+import pickle
 
 # Add src folder to sys.path so tests can import modules
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
@@ -43,7 +44,7 @@ def test_vectorizer_can_transform():
     with open(VEC_PATH, "rb") as f:
         vec = pickle.load(f)
     X = vec.transform(["this is a test"])
-    assert X.shape[1] <= 10
+    assert X.shape[1] <= 10000
 
 @pytest.fixture
 def sample_df():

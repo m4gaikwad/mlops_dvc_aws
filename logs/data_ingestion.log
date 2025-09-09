@@ -18,3 +18,5 @@
 2025-09-09 06:26:29,767 - data_ingestion - DEBUG - Data loaded from https://raw.githubusercontent.com/vikashishere/Datasets/main/spam.csv -
 2025-09-09 06:26:29,768 - data_ingestion - DEBUG - Data Preproccesing Completed -
 2025-09-09 06:26:29,787 - data_ingestion - DEBUG - Train and Test data saved: ./data/raw -
+2025-09-09 07:55:22,375 - data_ingestion - DEBUG - Data Preproccesing Completed -
+2025-09-09 07:56:00,482 - data_ingestion - DEBUG - Data Preproccesing Completed -
