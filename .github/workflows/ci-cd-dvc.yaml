@@ -1,0 +1,107 @@
+name: ci-cd-dvc
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+permissions:
+  id-token: write   # for GitHub OIDC to AWS
+  contents: read
+
+jobs:
+  build-test-train:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run unit tests
+        run: pytest -q
+
+      - name: Configure AWS credentials (OIDC)
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Set up DVC remote
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        env:
+          DVC_S3_URL: ${{ secrets.DVC_S3_URL }}
+        run: |
+          dvc remote add -f aws $DVC_S3_URL
+          dvc remote default aws
+
+      - name: Reproduce pipeline
+        run: dvc repro
+
+      - name: Show metrics
+        run: |
+          echo "Metrics:"
+          cat reports/metrics.json || true
+
+      - name: Push DVC artifacts to S3
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        run: dvc push
+
+      - name: Upload metrics artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: metrics
+          path: reports/metrics.json
+
+      - name: Upload dvclive runs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dvclive
+          path: dvclive
+          
+  deploy:
+    needs: build-test-train
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, tag, and push image to ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: spam-classifier
+          IMAGE_TAG: latest
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG

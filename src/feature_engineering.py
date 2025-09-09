@@ -78,8 +78,12 @@ def apply_tfidf(train_data: pd.DataFrame, test_data: pd.DataFrame, max_features:
         
         test_df = pd.DataFrame(X_test_bow.toarray())
         test_df['label'] = y_test
-        
         logger.debug('TFIDF Vectors created for Train and Test Data')
+        
+        with open("data/processed/vectorizer.pkl", "wb") as f:
+            pickle.dump(vectorizer, f)
+        
+        logger.debug('Vectorizer saved.')
         return train_df, test_df
     except Exception as e:
         logger.error('Error during TFIDF transformation: %s',e)
@@ -108,6 +112,9 @@ def main():
         
         save_data(train_df, os.path.join('./data','processed','train_tfidf.csv'))
         save_data(test_df, os.path.join('./data','processed','test_tfidf.csv'))
+        
+        
+            
     except Exception as e:
         logger.error('Failed Features Generation: %s',e)
         print(f"Error:{e}")

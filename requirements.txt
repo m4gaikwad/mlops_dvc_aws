@@ -1,0 +1,21 @@
+# Core ML + Data
+pandas
+numpy
+scikit-learn
+nltk
+mlflow
+
+# Config
+pyyaml
+
+# Experiment Tracking / Pipeline
+dvclive
+dvc[s3]
+
+# Testing
+pytest
+pytest-cov
+
+# API Inference
+fastapi
+uvicorn[standard]

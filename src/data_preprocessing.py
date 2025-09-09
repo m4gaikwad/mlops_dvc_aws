@@ -12,7 +12,16 @@ import string
 import nltk
 
 #Download nltk corpus
-nltk.download("all")
+required_resources = [
+    ("punkt", "tokenizers/punkt"),
+    ("wordnet", "corpora/wordnet"),
+    ("stopwords", "corpora/stopwords")
+]
+for resource, path in required_resources:
+    try:
+        nltk.data.find(path)
+    except LookupError:
+        nltk.download(resource)
 
 #Logging
 log_dir = 'logs'
