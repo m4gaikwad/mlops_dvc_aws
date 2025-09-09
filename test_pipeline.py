@@ -4,6 +4,7 @@ import pandas as pd
 import pytest
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Add src folder to sys.path so tests can import modules
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
