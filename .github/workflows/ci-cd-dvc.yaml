@@ -54,7 +54,8 @@ jobs:
         run: dvc repro
 
       - name: Run unit tests
-        run: pytest -q
+        run: |
+          pytest -q
 			
       - name: Show metrics
         run: |
