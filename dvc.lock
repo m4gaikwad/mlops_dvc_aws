@@ -93,35 +93,51 @@ stages:
       size: 107248
       isexec: true
   model_building:
-    cmd: python src/model_building.py
+    cmd: python -m src.model_building
     deps:
-    - path: data/processed
+    - path: data/processed/train_tfidf.csv
       hash: md5
-      md5: 4aefe88e2455925e9c861461d939e542.dir
-      size: 1600619
-      nfiles: 2
+      md5: e4ca31c2d403a06ad05c9fcb0c84890b
+      size: 50292495
+      isexec: true
+    - path: params.yaml
+      hash: md5
+      md5: e9563ccbfd02a7100831b35a8765db68
+      size: 132
+      isexec: true
     - path: src/model_building.py
       hash: md5
-      md5: 77c025cb068578132c19a747b222ee47
-      size: 3767
+      md5: 66b868c7b60ac604f23c27e40744b7a9
+      size: 4134
       isexec: true
-    params:
-      params.yaml:
-        model_building.n_estimators: 60
-        model_building.random_state: 5
     outs:
     - path: model/model.pkl
       hash: md5
-      md5: 7862dc06421610cb8f9ede40c1bbd4d1
-      size: 3044524
+      md5: 43f0f453e8dafc3adf036fef6c7ca4dc
+      size: 15876220
+      isexec: true
+    - path: model/vectorizer.pkl
+      hash: md5
+      md5: c3b66f443bba843cd92c4d1cb488efd2
+      size: 107248
       isexec: true
   model_evaluation:
-    cmd: python src/model_evaluation.py
+    cmd: python -m src.model_evaluation
     deps:
+    - path: data/processed/test_tfidf.csv
+      hash: md5
+      md5: bf7838e9093a6be255c88d4336c2e6bf
+      size: 13340144
+      isexec: true
     - path: model/model.pkl
       hash: md5
-      md5: 7862dc06421610cb8f9ede40c1bbd4d1
-      size: 3044524
+      md5: 43f0f453e8dafc3adf036fef6c7ca4dc
+      size: 15876220
+      isexec: true
+    - path: params.yaml
+      hash: md5
+      md5: e9563ccbfd02a7100831b35a8765db68
+      size: 132
       isexec: true
     - path: src/model_evaluation.py
       hash: md5
@@ -129,8 +145,13 @@ stages:
       size: 4560
       isexec: true
     outs:
+    - path: dvclive
+      hash: md5
+      md5: 8e15498379159b5d90272af603905111.dir
+      size: 254
+      nfiles: 5
     - path: reports/metrics.json
       hash: md5
-      md5: a8444428e56f5d8214669ceaa255c674
+      md5: 1d339f412c145ab363e4d4c8183fdc3b
       size: 125
       isexec: true

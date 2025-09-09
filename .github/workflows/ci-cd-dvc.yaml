@@ -35,9 +35,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run unit tests
-        run: pytest -q
-
       - name: Configure AWS credentials (OIDC)
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         uses: aws-actions/configure-aws-credentials@v4
@@ -56,6 +53,9 @@ jobs:
       - name: Reproduce pipeline
         run: dvc repro
 
+      - name: Run unit tests
+        run: pytest -q
+			
       - name: Show metrics
         run: |
           echo "Metrics:"

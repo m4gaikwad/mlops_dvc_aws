@@ -8,7 +8,7 @@
         "s3:ListBucket",
         "s3:GetBucketLocation"
       ],
-      "Resource": "arn:aws:s3:::YOUR_DVC_BUCKET"
+      "Resource": "arn:aws:s3:::mayur-mlops-123"
     },
     {
       "Sid": "AllowS3ObjectsDVC",
@@ -21,7 +21,7 @@
         "s3:ListBucketMultipartUploads",
         "s3:ListMultipartUploadParts"
       ],
-      "Resource": "arn:aws:s3:::YOUR_DVC_BUCKET/*"
+      "Resource": "arn:aws:s3:::mayur-mlops-123/*"
     }
   ]
 }

@@ -13,3 +13,13 @@
 2025-07-24 04:34:55,956 - model_evaluation - DEBUG - Test Data Loaded from ./data/processed/test_tfidf.csv
 2025-07-24 04:34:55,969 - model_evaluation - DEBUG - Model Evaluation are accuracy: 0.967509 , precision : 0.913043, recall : 0.750000, auc: 0.870984
 2025-07-24 04:36:31,016 - model_evaluation - DEBUG - Metrics save to reports/metrics.json
+2025-09-09 06:31:11,859 - model_evaluation - DEBUG - Parameters retrieved from params.yaml
+2025-09-09 06:31:12,024 - model_evaluation - DEBUG - Model loaded from ./model/model.pkl
+2025-09-09 06:31:12,221 - model_evaluation - DEBUG - Test Data Loaded from ./data/processed/test_tfidf.csv
+2025-09-09 06:31:12,355 - model_evaluation - DEBUG - Model Evaluation are accuracy: 0.968211 , precision : 1.000000, recall : 0.775641, auc: 0.887821
+2025-09-09 06:31:12,721 - model_evaluation - DEBUG - Metrics save to reports/metrics.json
+2025-09-09 06:31:33,939 - model_evaluation - DEBUG - Parameters retrieved from params.yaml
+2025-09-09 06:31:34,088 - model_evaluation - DEBUG - Model loaded from ./model/model.pkl
+2025-09-09 06:31:34,271 - model_evaluation - DEBUG - Test Data Loaded from ./data/processed/test_tfidf.csv
+2025-09-09 06:31:34,405 - model_evaluation - DEBUG - Model Evaluation are accuracy: 0.968211 , precision : 1.000000, recall : 0.775641, auc: 0.887821
+2025-09-09 06:31:34,686 - model_evaluation - DEBUG - Metrics save to reports/metrics.json
