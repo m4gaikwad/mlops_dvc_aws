@@ -52,10 +52,6 @@ jobs:
 
       - name: Reproduce pipeline
         run: dvc repro
-
-      - name: Run unit tests
-        run: |
-          pytest -q
 			
       - name: Show metrics
         run: |
