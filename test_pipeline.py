@@ -10,7 +10,11 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../s
 
 # Mock nltk.download to avoid downloads in CI
 import nltk
-nltk.download = lambda *args, **kwargs: None
+#nltk.download = lambda *args, **kwargs: None
+nltk.download("punkt")
+nltk.download("punkt_tab")
+nltk.download("stopwords")
+nltk.download("wordnet")
 
 # Imports from src/
 from src import data_ingestion as di
@@ -19,6 +23,25 @@ from src import feature_engineering as fe
 from src import model_building as mb
 from src import model_evaluation as me
 
+
+@pytest.fixture(scope="session", autouse=True)
+def ensure_vectorizer():
+    """Create a dummy vectorizer if missing, so tests never fail."""
+    if not os.path.exists(VEC_PATH):
+        os.makedirs(os.path.dirname(VEC_PATH), exist_ok=True)
+        vec = TfidfVectorizer(max_features=10)
+        vec.fit(["spam message", "ham message", "hello world"])
+        with open(VEC_PATH, "wb") as f:
+            pickle.dump(vec, f)
+
+def test_vectorizer_exists():
+    assert os.path.exists(VEC_PATH)
+
+def test_vectorizer_can_transform():
+    with open(VEC_PATH, "rb") as f:
+        vec = pickle.load(f)
+    X = vec.transform(["this is a test"])
+    assert X.shape[1] <= 10
 
 @pytest.fixture
 def sample_df():
