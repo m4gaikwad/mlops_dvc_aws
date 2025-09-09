@@ -54,27 +54,44 @@ stages:
       size: 213383
       isexec: true
   feature_engineering:
-    cmd: python src/feature_engineering.py
+    cmd: python -m src.feature_engineering
     deps:
-    - path: data/interim
+    - path: data/interim/test_processed.csv
       hash: md5
-      md5: 55e8aa84c32a8811b7f43ee7116cf28b.dir
-      size: 266692
-      nfiles: 2
+      md5: 71d828e8812d9b391676e11269186580
+      size: 57370
+      isexec: true
+    - path: data/interim/train_processed.csv
+      hash: md5
+      md5: 3fb266466fea3579f982aa7d2c3f7e47
+      size: 213383
+      isexec: true
+    - path: params.yaml
+      hash: md5
+      md5: e9563ccbfd02a7100831b35a8765db68
+      size: 132
+      isexec: true
     - path: src/feature_engineering.py
       hash: md5
-      md5: 01994e8d9ffc4b365edbfc6fbdc26ad4
-      size: 3797
+      md5: d12e6bab80d6eec1200ad9a2b6995447
+      size: 4003
       isexec: true
-    params:
-      params.yaml:
-        feature_engineering.max_features: 70
     outs:
-    - path: data/processed
+    - path: data/processed/test_tfidf.csv
       hash: md5
-      md5: 4aefe88e2455925e9c861461d939e542.dir
-      size: 1600619
-      nfiles: 2
+      md5: bf7838e9093a6be255c88d4336c2e6bf
+      size: 13340144
+      isexec: true
+    - path: data/processed/train_tfidf.csv
+      hash: md5
+      md5: e4ca31c2d403a06ad05c9fcb0c84890b
+      size: 50292495
+      isexec: true
+    - path: data/processed/vectorizer.pkl
+      hash: md5
+      md5: c3b66f443bba843cd92c4d1cb488efd2
+      size: 107248
+      isexec: true
   model_building:
     cmd: python src/model_building.py
     deps:

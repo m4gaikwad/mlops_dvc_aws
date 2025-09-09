@@ -113,15 +113,15 @@ def main():
         model_save_path = 'model/model.pkl'
         save_model(clf, model_save_path)
         
-    try:
-        with open("data/processed/vectorizer.pkl", "rb") as f:
-            vectorizer = pickle.load(f)  # if feature_engineering saved it
-    except FileNotFoundError:
-        vectorizer = None
+        try:
+            with open("data/processed/vectorizer.pkl", "rb") as f:
+                vectorizer = pickle.load(f)  # if feature_engineering saved it
+        except FileNotFoundError:
+            vectorizer = None
 
-    if vectorizer:
-        with open("model/vectorizer.pkl", "wb") as f:
-            pickle.dump(vectorizer, f)
+        if vectorizer:
+            with open("model/vectorizer.pkl", "wb") as f:
+                pickle.dump(vectorizer, f)
     
     except Exception as e:
         logger.error('Failed to build model %s',e)
