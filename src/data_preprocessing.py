@@ -23,6 +23,8 @@ for resource, path in required_resources:
     except LookupError:
         nltk.download(resource)
 
+nltk.download("punkt_tab")
+
 #Logging
 log_dir = 'logs'
 os.makedirs(log_dir, exist_ok=True)
