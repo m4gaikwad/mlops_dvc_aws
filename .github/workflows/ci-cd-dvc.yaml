@@ -103,7 +103,13 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: ${{ secrets.AWS_REGION }}
-
+      
+      - name: Install DVC and pull
+        - run: |
+          pip install --upgrade pip
+          pip install dvc[s3] fastapi uvicorn
+          dvc pull -r aws
+          
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
