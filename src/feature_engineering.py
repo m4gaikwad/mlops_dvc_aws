@@ -81,7 +81,7 @@ def apply_tfidf(train_data: pd.DataFrame, test_data: pd.DataFrame, max_features:
         test_df['label'] = y_test
         logger.debug('TFIDF Vectors created for Train and Test Data')
         
-        with open("./data/processed/vectorizer.pkl", "wb") as f:
+        with open("./data/interim/vectorizer.pkl", "wb") as f:
             pickle.dump(vectorizer, f)
         
         logger.debug('Vectorizer saved.')

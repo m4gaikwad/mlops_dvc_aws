@@ -114,7 +114,7 @@ def main():
         save_model(clf, model_save_path)
         
         try:
-            with open("./data/processed/vectorizer.pkl", "rb") as f:
+            with open("./data/interim/vectorizer.pkl", "rb") as f:
                 vectorizer = pickle.load(f)  # if feature_engineering saved it
         except FileNotFoundError:
             vectorizer = None
