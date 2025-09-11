@@ -120,12 +120,6 @@ jobs:
           ECR_REPOSITORY: spam-classifier
           IMAGE_TAG: latest
         run: |
-          if ! aws ecr describe-repositories --repository-names $ECR_REPO >/dev/null 2>&1; then
-            echo "Creating ECR repository $ECR_REPO"
-            aws ecr create-repository --repository-name $ECR_REPO
-          else
-            echo "ECR repository $ECR_REPO already exists"
-          fi
-          
+          aws ecr create-repository --repository-name $ECR_REPOSITORY
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
