@@ -46,7 +46,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
+          
+      - name: Debug AWS inputs
+        run: |
+          echo "Role: ${{ secrets.AWS_ROLE_TO_ASSUME }}"
+          echo "Region: ${{ secrets.AWS_REGION }}"
+          
       - name: Configure AWS credentials (OIDC)
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         uses: aws-actions/configure-aws-credentials@v4
