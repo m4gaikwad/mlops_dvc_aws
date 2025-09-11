@@ -17,6 +17,7 @@ COPY dvc.yaml dvc.yaml
 COPY params.yaml params.yaml
 COPY .dvc/ .dvc/
 COPY src/ src/
+COPY model/ model/
 
 # Expose API
 EXPOSE 8000
