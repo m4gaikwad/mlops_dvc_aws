@@ -109,7 +109,14 @@ jobs:
           pip install --upgrade pip
           pip install dvc[s3] fastapi uvicorn
           dvc pull -r aws
-          
+      
+      - name: Install AWS
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
+          aws --version  
+      
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
@@ -120,5 +127,12 @@ jobs:
           ECR_REPOSITORY: spam-classifier
           IMAGE_TAG: latest
         run: |
+          if ! aws ecr describe-repositories --repository-names $ECR_REPO >/dev/null 2>&1; then
+            echo "Creating ECR repository $ECR_REPO"
+            aws ecr create-repository --repository-name $ECR_REPO
+          else
+            echo "ECR repository $ECR_REPO already exists"
+          fi
+          
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
