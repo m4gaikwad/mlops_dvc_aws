@@ -108,15 +108,8 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install dvc[s3] fastapi uvicorn
-          dvc pull -r aws
-      
-      - name: Install AWS
-        run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install
-          aws --version  
-      
+          dvc pull -r aws      
+     
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
