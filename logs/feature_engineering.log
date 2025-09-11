@@ -27,3 +27,10 @@
 2025-09-09 07:55:23,657 - feature_engineering - DEBUG - Vectorizer saved.
 2025-09-09 07:56:01,710 - feature_engineering - DEBUG - TFIDF Vectors created for Train and Test Data
 2025-09-09 07:56:01,712 - feature_engineering - DEBUG - Vectorizer saved.
+2025-09-11 04:39:47,347 - feature_engineering - DEBUG - Parameters from params.yaml loaded
+2025-09-11 04:39:47,356 - feature_engineering - DEBUG - Data loaded and NaNs filled from ./data/interim/train_processed.csv
+2025-09-11 04:39:47,360 - feature_engineering - DEBUG - Data loaded and NaNs filled from ./data/interim/test_processed.csv
+2025-09-11 04:39:47,464 - feature_engineering - DEBUG - TFIDF Vectors created for Train and Test Data
+2025-09-11 04:39:47,474 - feature_engineering - DEBUG - Vectorizer saved.
+2025-09-11 04:39:50,158 - feature_engineering - DEBUG - Data Saved:./data/processed/train_tfidf.csv
+2025-09-11 04:39:50,884 - feature_engineering - DEBUG - Data Saved:./data/processed/test_tfidf.csv
